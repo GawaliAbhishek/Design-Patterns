@@ -4,7 +4,7 @@ package FactoryPattern;
  * when there is super class and multiple subclass and we want to get the object of subclasses based on the 
  * input and requirement then we create factory class which takes the responsiblity of creating objects based on
  * input 
- * 
+ *  We akso call it as Factory Method Desgin Patterns
  *  Advantages : Lose Coupling and Not runtime crashes
  */
 public class Main {
