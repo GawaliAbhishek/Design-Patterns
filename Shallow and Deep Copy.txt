@@ -1,0 +1,58 @@
+
+
+**Shallow Copy**:
+
+A shallow copy of an object creates a new object and copies all the fields
+ of the original object to the new object. However, if the fields of the original 
+ object are reference types (e.g., arrays or objects), then only the references to 
+ those fields are copied, not the actual objects themselves. This means both the original
+  object and the shallow copy will still reference the same objects in memory.
+
+**Deep Copy**:
+
+A deep copy of an object creates a new object and recursively copies all the fields of the 
+original object, including any objects referenced by the original object's fields. 
+This means that a deep copy duplicates not only the original object but also any objects it references.
+
+
+
+Let's illustrate these concepts with a simple example:
+
+import java.util.Arrays;
+
+class Person {
+    String name;
+    int[] scores;
+
+    public Person(String name, int[] scores) {
+        this.name = name;
+        this.scores = scores;
+    }
+}
+
+public class DeepCopyVsShallowCopy {
+    public static void main(String[] args) {
+        int[] originalScores = {90, 85, 80};
+        Person originalPerson = new Person("Alice", originalScores);
+
+        // Shallow copy
+        Person shallowCopyPerson = new Person(originalPerson.name, originalPerson.scores);
+
+        // Deep copy
+        int[] deepCopyScores = Arrays.copyOf(originalPerson.scores, originalPerson.scores.length);
+        Person deepCopyPerson = new Person(originalPerson.name, deepCopyScores);
+
+        // Modify original scores
+        originalScores[0] = 100;
+
+        // Print original, shallow copy, and deep copy scores
+        System.out.println("Original scores: " + Arrays.toString(originalPerson.scores));
+        System.out.println("Shallow copy scores: " + Arrays.toString(shallowCopyPerson.scores));
+        System.out.println("Deep copy scores: " + Arrays.toString(deepCopyPerson.scores));
+    }
+}
+```
+
+In this example, we have a `Person` class with a `name` field and an `int` array `scores`. We create an original person object with some scores. Then we create a shallow copy and a deep copy of this object.
+
+When we modify the `originalScores` array after creating the shallow and deep copies, you'll see that the shallow copy's scores are also modified because it shares the same reference to the `scores` array with the original object. However, the deep copy's scores remain unchanged because it has its own separate copy of the scores array.

@@ -7,11 +7,11 @@ import SingletonPattern.Samosa;
 public class Main {
     public static void main(String[] args) throws Exception{
 
-       Samosa s1= Samosa.getInstanceSamosa();
-       //System.out.println(s1.hashCode());
+    //    Samosa s1= Samosa.getInstanceSamosa();
+    //    //System.out.println(s1.hashCode());
 
-       Samosa s2= Samosa.getInstanceSamosa();
-      // System.out.println(s2.hashCode());
+    //    Samosa s2= Samosa.getInstanceSamosa();
+    //   // System.out.println(s2.hashCode());
 
        // How to break a singleton pattern 
        /* 1. Reflection API can be used to break a Singleton Pattern
